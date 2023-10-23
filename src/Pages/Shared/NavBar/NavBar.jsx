@@ -1,4 +1,81 @@
+import { NavLink } from "react-router-dom";
+import logo from "../../../assets/logo.svg";
+
 const NavBar = () => {
+  const navLinks = (
+    <>
+      <li className="text-xl font-bold">
+        <NavLink
+          to="/"
+          className={({ isActive, isPending }) =>
+            isPending
+              ? "pending "
+              : isActive
+              ? " bg-[#FF3811] text-black"
+              : "text-[#FF3811] dark:text-black"
+          }
+        >
+          Home
+        </NavLink>
+      </li>
+      <li className="text-xl font-bold">
+        <NavLink
+          to="/addProduct"
+          className={({ isActive, isPending }) =>
+            isPending
+              ? "pending "
+              : isActive
+              ? " bg-[#FF3811] text-black"
+              : "text-[#FF3811] dark:text-black"
+          }
+        >
+          Add Product
+        </NavLink>
+      </li>
+      <li className="text-xl font-bold">
+        <NavLink
+          to="/myCart"
+          className={({ isActive, isPending }) =>
+            isPending
+              ? "pending "
+              : isActive
+              ? " bg-[#FF3811] text-black"
+              : "text-[#FF3811] dark:text-black"
+          }
+        >
+          My Cart
+        </NavLink>
+      </li>
+      <li className="text-xl font-bold">
+        <NavLink
+          to="/login"
+          className={({ isActive, isPending }) =>
+            isPending
+              ? "pending "
+              : isActive
+              ? " bg-[#FF3811] text-black"
+              : "text-[#FF3811] dark:text-black"
+          }
+        >
+          login
+        </NavLink>
+      </li>
+      <li className="text-xl font-bold">
+        <NavLink
+          to="/register"
+          className={({ isActive, isPending }) =>
+            isPending
+              ? "pending "
+              : isActive
+              ? " bg-[#FF3811] text-black"
+              : "text-[#FF3811] dark:text-black"
+          }
+        >
+          Register
+        </NavLink>
+      </li>
+    </>
+  );
   return (
     <div>
       <div className="navbar bg-base-100">
@@ -24,52 +101,20 @@ const NavBar = () => {
               tabIndex={0}
               className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
             >
-              <li>
-                <a>Item 1</a>
-              </li>
-              <li>
-                <a>Parent</a>
-                <ul className="p-2">
-                  <li>
-                    <a>Submenu 1</a>
-                  </li>
-                  <li>
-                    <a>Submenu 2</a>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <a>Item 3</a>
-              </li>
+              {navLinks}
             </ul>
           </div>
-          <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+          <div>
+            <img src={logo} alt="" />
+          </div>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
-            <li>
-              <a>Item 1</a>
-            </li>
-            <li tabIndex={0}>
-              <details>
-                <summary>Parent</summary>
-                <ul className="p-2">
-                  <li>
-                    <a>Submenu 1</a>
-                  </li>
-                  <li>
-                    <a>Submenu 2</a>
-                  </li>
-                </ul>
-              </details>
-            </li>
-            <li>
-              <a>Item 3</a>
-            </li>
-          </ul>
+          <ul className="menu menu-horizontal px-1">{navLinks}</ul>
         </div>
         <div className="navbar-end">
-          <a className="btn">Button</a>
+          <a className="border-2 px-5 py-2 rounded-md border-[#FF3811] text-xl font-semibold text-[#FF3811]">
+            Appointmen
+          </a>
         </div>
       </div>
     </div>
