@@ -1,17 +1,21 @@
+import { BsArrowRight } from "react-icons/bs";
 const ServicesCart = ({ services }) => {
-  const { img, title } = services || {};
+  const { img, title, price, description } = services || {};
   console.log(services);
   return (
     <div>
       <div className="card w-full bg-base-100 shadow-xl">
-        <figure className="px-4 pt-4">
-          <img src={img} alt="Shoes" className="rounded-xl h-56" />
+        <figure className="px-6 pt-6">
+          <img src={img} alt="Shoes" className="rounded-xl h-64 w-full" />
         </figure>
         <div className="card-body text-left ">
           <h2 className="card-title">{title}</h2>
-          <p>If a dog chews shoes whose shoes does he choose?</p>
-          <div className="card-actions">
-            <button className="btn btn-primary">Buy Now</button>
+          <p>{description.slice(0, 140)}</p>
+          <div className="card-actions text-[#FF3811]">
+            <p className="text-2xl font-semibold">Price: ${price}</p>
+            <button>
+              <BsArrowRight className="text-3xl font-bold"></BsArrowRight>
+            </button>
           </div>
         </div>
       </div>
