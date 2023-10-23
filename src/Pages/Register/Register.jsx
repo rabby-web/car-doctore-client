@@ -4,19 +4,27 @@ import { AiFillGoogleCircle, AiFillLinkedin } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
 const Register = () => {
+  const handleRegister = (event) => {
+    event.preventDefault();
+    const name = event.target.name.value;
+    const email = event.target.email.value;
+    const password = event.target.password.value;
+    console.log(name, email, password);
+  };
   return (
     <div>
       <div className="hero min-h-screen bg-base-100">
         <div className="hero-content flex-col-reverse lg:flex-row-reverse  gap-7">
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-            <h2 className="text-2xl font-bold text-center pt-6">Register</h2>
-            <form className="card-body">
+            <h2 className="text-2xl font-bold text-center pt-3">Register</h2>
+            <form onSubmit={handleRegister} className="card-body">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Name</span>
                 </label>
                 <input
                   type="name"
+                  name="name"
                   placeholder="name"
                   className="input input-bordered"
                   required
@@ -28,6 +36,7 @@ const Register = () => {
                 </label>
                 <input
                   type="email"
+                  name="email"
                   placeholder="email"
                   className="input input-bordered"
                   required
@@ -39,12 +48,13 @@ const Register = () => {
                 </label>
                 <input
                   type="password"
+                  name="password"
                   placeholder="password"
                   className="input input-bordered"
                   required
                 />
               </div>
-              <div className="form-control mt-6">
+              <div className="form-control mt-4">
                 <button className="btn bg-[#FF3811] hover:bg-[#FF3811] text-white">
                   Register
                 </button>
@@ -56,7 +66,7 @@ const Register = () => {
               <AiFillGoogleCircle></AiFillGoogleCircle>
               <AiFillLinkedin></AiFillLinkedin>
             </div>
-            <h2 className="text-center mb-6">
+            <h2 className="text-center mb-4">
               Already have an account?{" "}
               <Link to="/login" className="text-[#FF3811] font-semibold">
                 Login
