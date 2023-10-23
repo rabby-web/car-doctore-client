@@ -2,14 +2,26 @@ import login from "../../assets/images/login/login.svg";
 import { BsFacebook } from "react-icons/bs";
 import { AiFillGoogleCircle, AiFillLinkedin } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../providers/AuthProvider";
 
 const Register = () => {
+  const { createUser } = useContext(AuthContext);
+
   const handleRegister = (event) => {
     event.preventDefault();
     const name = event.target.name.value;
     const email = event.target.email.value;
     const password = event.target.password.value;
     console.log(name, email, password);
+    createUser(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
   return (
     <div>
