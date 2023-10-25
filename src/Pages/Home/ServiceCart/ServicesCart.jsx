@@ -1,6 +1,6 @@
-import { BsArrowRight } from "react-icons/bs";
+import { Link } from "react-router-dom";
 const ServicesCart = ({ services }) => {
-  const { img, title, price, description } = services || {};
+  const { _id, img, title, price, description } = services || {};
   console.log(services);
   return (
     <div>
@@ -13,9 +13,9 @@ const ServicesCart = ({ services }) => {
           <p>{description.slice(0, 140)}</p>
           <div className="card-actions text-[#FF3811]">
             <p className="text-2xl font-semibold">Price: ${price}</p>
-            <button>
-              <BsArrowRight className="text-3xl font-bold"></BsArrowRight>
-            </button>
+            <Link to={`/checkout/${_id}`}>
+              <button className="btn bg-[#FF3811] text-white">Book Now</button>
+            </Link>
           </div>
         </div>
       </div>
