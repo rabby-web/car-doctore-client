@@ -13,7 +13,7 @@ const ServicesCart = ({ services }) => {
           <p>{description.slice(0, 140)}</p>
           <div className="card-actions text-[#FF3811]">
             <p className="text-2xl font-semibold">Price: ${price}</p>
-            <Link to={`/checkout/${_id}`}>
+            <Link to={`/book/${_id}`}>
               <button className="btn bg-[#FF3811] text-white">Book Now</button>
             </Link>
           </div>

@@ -1,6 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 
-const CheckOut = () => {
+const BookService = () => {
   const service = useLoaderData();
   const { title, _id, price } = service;
   return (
@@ -81,4 +81,4 @@ const CheckOut = () => {
   );
 };
 
-export default CheckOut;
+export default BookService;
