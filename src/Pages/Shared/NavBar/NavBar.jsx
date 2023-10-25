@@ -1,7 +1,15 @@
 import { NavLink } from "react-router-dom";
 import logo from "../../../assets/logo.svg";
+import { useContext } from "react";
+import { AuthContext } from "../../../providers/AuthProvider";
 
 const NavBar = () => {
+  const { user, logOut } = useContext(AuthContext);
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {})
+      .then((error) => console.log(error));
+  };
   const navLinks = (
     <>
       <li className="text-xl font-bold">
@@ -46,21 +54,28 @@ const NavBar = () => {
           My Cart
         </NavLink>
       </li>
-      <li className="text-xl font-bold">
-        <NavLink
-          to="/login"
-          className={({ isActive, isPending }) =>
-            isPending
-              ? "pending "
-              : isActive
-              ? " bg-[#FF3811] text-black"
-              : "text-[#FF3811] dark:text-black"
-          }
-        >
-          login
-        </NavLink>
-      </li>
-      <li className="text-xl font-bold">
+
+      {user?.email ? (
+        <li className="text-xl font-bold">
+          <button onClick={handleLogOut}>Logout</button>
+        </li>
+      ) : (
+        <li className="text-xl font-bold">
+          <NavLink
+            to="/login"
+            className={({ isActive, isPending }) =>
+              isPending
+                ? "pending "
+                : isActive
+                ? " bg-[#FF3811] text-black"
+                : "text-[#FF3811] dark:text-black"
+            }
+          >
+            login
+          </NavLink>
+        </li>
+      )}
+      {/* <li className="text-xl font-bold">
         <NavLink
           to="/register"
           className={({ isActive, isPending }) =>
@@ -73,7 +88,7 @@ const NavBar = () => {
         >
           Register
         </NavLink>
-      </li>
+      </li> */}
     </>
   );
   return (
