@@ -28,6 +28,20 @@ const NavBar = () => {
       </li>
       <li className="text-xl font-bold">
         <NavLink
+          to="/bookings"
+          className={({ isActive, isPending }) =>
+            isPending
+              ? "pending "
+              : isActive
+              ? " bg-[#FF3811] text-black"
+              : "text-[#FF3811] dark:text-black"
+          }
+        >
+          Bookings
+        </NavLink>
+      </li>
+      <li className="text-xl font-bold">
+        <NavLink
           to="/addProduct"
           className={({ isActive, isPending }) =>
             isPending
